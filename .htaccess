@@ -1,0 +1,14 @@
+#Ce fichier permet une redirection vers Authentification.php qui va vérifier si l'utilisateur est authentifié ou non. 
+#Si une variable session valable est présente, l'utilisateur aura un fichier de configuration en fonction de son rôle : Utilisateur, Partenaire, Admin, Etablissement Formation. 
+#L'utilisateur sera ensuite redirigé vers l'écran d'acceuil et verra les vues et son experience utilisateur approprié à ce qui à été autorisé dans le fichier de configuration.
+
+#module de réécriture d'url 
+RewriteEngine On
+#condition de récriture d'url
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+#récriture du fichier index.php dans l'url avec la page demandée en entrée
+RewriteRule ^(.+)$ index.php?url=$1
+#redirection vers l'index 
+DirectoryIndex index.php
