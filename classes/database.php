@@ -11,17 +11,23 @@ prérequis install : activer l'extension=php_pdo.dll dans "php.ini"
 
 class database{
     function __construct($role){
-        $this->Role = 'Admin';
+        $this->Role = 'Administrateur';
         //Chargement des identifiants de connexion mysql
-        $this->FichierConfDatabase = parse_ini_file("./config/IdentifiantsBdd/$role.ini", TRUE);
-        echo 'lancement de la database';
-        //connexion Mysql
-        $this->dbh = new PDO('mysql:host=localhost;dbname='.$this->FichierConfDatabase['IdentifiantsBDD']['NomBase'], $this->FichierConfDatabase['IdentifiantsBDD']['Utilisateur'], $this->FichierConfDatabase['IdentifiantsBDD']['Password']);
+        $this->FichierConfDatabase = parse_ini_file("./config/IdentifiantsBDD/$role.ini", $process_sections = false, $scanner_mode = INI_SCANNER_NORMAL);
+
+        $Nombase = $this->FichierConfDatabase['Nombase'];
+        $Utilisateur = $this->FichierConfDatabase['NomUtilisateur'];
+        $Password = $this->FichierConfDatabase['Password'];
+
+        $this->db = new PDO('mysql:host=localhost;dbname='.$Nombase, $Utilisateur, $Password);
     }
 
-    function request($sql){
-        exit;
-        //$this->dbh->
+    public function request($sql){
+        //Il faudra ici faire un catch pour récupérer l'érreur SQL en cas de mauvaise manipulation
+        $sth = $this->db->prepare($sql);
+        $sth->execute();
+        $result = $sth->fetchAll();
+        return $result;
     }
 
 
