@@ -20,7 +20,6 @@ switch ($NbParamsUrl){
 }
 
 if ($Url[0] == "Connexion"){
-    var_dump($_POST);
     include("classes/Connexion.php");
     new Connexion();
 }

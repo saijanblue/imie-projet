@@ -20,17 +20,19 @@ class Connexion{
             $email = $_POST['Identifiant'];
             $Password = $_POST['Password'];
 
-            $email = "wacquezp@gmail.com";
-            $Password = "password";
-
-            $db     = new database("Utilisateur");
-            $sql    = "SELECT password, status, email, id_role FROM user WHERE email = '$email'";
-            $result = $db->request($sql);
+            $this->db     = new database("Utilisateur");
+            $sql    = "SELECT password, status, email, id_role, deleted FROM user WHERE email = '$email'";
+            $result = $this->db->request($sql);
 
             /*
             resume : On va vérifier l'état du profil de l'utilisateur, est-il inactif ? supprimé par un admin ? email non valide en base ? mauvais password ? 
             */
-            $this->CheckValidity($result);
+            if ($this->CheckValidity($result) == TRUE){
+                $this->SetSession($result[0]['id_role']);                
+                Vue::AfficherVue("Header");
+                Vue::AfficherVue("Home");
+                Vue::AfficherVue("Footer");
+            }
 
 
             exit;            
@@ -42,28 +44,44 @@ class Connexion{
         }
     }
 
-    public function CheckValidity($result){
-        var_dump($result[0]);
+    public function SetSession($id_role){
+        $sql = "select id, libelle from user_role where id = $id_role";
+        $result_UseRole = $this->db->request($sql);
+        $role = $result_UseRole[0]['libelle'];
 
-        switch($result[0]){
-            case "password":
-                if ($_POST['Password'] == "password"){
-                    continue;
-                }else{
-                    $arg = array("erreur" => $msg);
-                    Vue::AfficherVue("Erreur", $arg);
-                }
-            break;
-            case "email":
-            break;
-            case "status":
-            break;
-            case "id_role":
-            break;
+        session_start();
+        $_SESSION['role']=$role;
+    }
+
+    public function CheckValidity($result){
+        
+
+        if (count($result) == 0){
+            $arg = array("erreur" => "Votre email n'a pas été enregistré  !");
+            Vue::AfficherVue("Erreur", $arg);
+            header( "Refresh:3; url=http://imie-projet/connexion");
+            return FALSE;
+        }
+        else if ($result[0]['password'] != $_POST['Password']){
+            $arg = array("erreur" => "Mauvais mot de passe !");
+            Vue::AfficherVue("Erreur", $arg);
+            header( "Refresh:3; url=http://imie-projet/connexion");
+            return FALSE;
+        }
+        else if ($result[0]['status'] == "inactif"){
+            $arg = array("erreur" => "Votre profil à été inactif trop longtemps !");
+            Vue::AfficherVue("Erreur", $arg);
+            header( "Refresh:3; url=http://imie-projet/connexion");
+            return FALSE;
+        }
+        else if ($result[0]['deleted'] == "oui"){
+            $arg = array("erreur" => "Votre profil à été supprimé");
+            Vue::AfficherVue("Erreur", $arg);
+            header( "Refresh:3; url=http://imie-projet/connexion");
+            return FALSE;
         }
 
-        exit;
-
+        return TRUE;
     }
 }
 
