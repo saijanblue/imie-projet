@@ -14,7 +14,7 @@ class Authentification{
     }
 
     public static function CheckRight($Request, $Role){
-        $FichierConf_ListeRole = parse_ini_file('../config/ConfigurationRoles/ListeRole.ini', TRUE);
+        $FichierConf_ListeRole = parse_ini_file('./config/ConfigurationRoles/ListeRole.ini', TRUE);
         $ListeRoles = $FichierConf_ListeRole['ROLE']['ListeRole'];
         $ListeRoles = explode(',', $ListeRoles);
 
@@ -24,13 +24,13 @@ class Authentification{
                 $ListePages = $FichierConf_Role['VUE']['PageAfficher'];
                 foreach ($ListePages as $Page){
                     if ($Page == $Request[0])
-                        return true;
+                        return TRUE;
                     else
-                        return false;
+                        return FALSE;
                 }
             }
             else
-                return false;
+                return FALSE;
         }
     }
 }

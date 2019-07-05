@@ -1,7 +1,10 @@
 <?php
 
     class   Routeur{
-        function __construct($page){
+        public function __construct($request){
+
+
+            $this->trouverRoute($request);
         }
 
         public static function trouverRoute($request){
@@ -9,7 +12,15 @@
         }
 
         public static function TrouverEtInstancierControleur($request){
-            
+
+            switch ($request){
+                case "Home":
+                    include 'Home.php';
+                    new Home();
+                break;
+                case "Connexion":
+                break;
+            }
         }
     }
 

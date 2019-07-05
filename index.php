@@ -1,6 +1,7 @@
 <?php
 
 include "classes/authentification.php";
+session_start();
 
 $Url            = isset($_GET['url']) ? $_GET['url'] : "Home";
 $Url            = rtrim($Url, '/');
@@ -28,8 +29,7 @@ if ($Url[0] == "Connexion"){
 resume : Verification des Variables sessions & vérification des droits
 */
 if (Authentification::CheckAuthentification() == TRUE ){
-    $_SESSION["Role"]   =   "Admin";
-
+    
     if (Authentification::CheckRight($Request, $_SESSION["Role"]) == TRUE ){
         include ('../classes/Routeur.php');
         new Routeur($Request);

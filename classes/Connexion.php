@@ -12,11 +12,7 @@ class Connexion{
     public function CheckParams(){
         if (isset($_POST['Identifiant']) && isset($_POST['Password']) ){
 
-            //cas = vide
-
             //Appel Database + Verification des identifiants
-
-            //test
             $email = $_POST['Identifiant'];
             $Password = $_POST['Password'];
 
@@ -28,13 +24,11 @@ class Connexion{
             resume : On va vérifier l'état du profil de l'utilisateur, est-il inactif ? supprimé par un admin ? email non valide en base ? mauvais password ? 
             */
             if ($this->CheckValidity($result) == TRUE){
-                $this->SetSession($result[0]['id_role']);                
-                Vue::AfficherVue("Header");
-                Vue::AfficherVue("Home");
-                Vue::AfficherVue("Footer");
+               if ( $this->SetSession($result[0]['id_role']) == TRUE){
+                echo 'Identification réussie, variable session instanciée ! mise en place du cookie user ';
+                header( "Refresh:2; url=http://imie-projet/Home");
+            }      
             }
-
-
             exit;            
         }else{
             echo "aucun param";
@@ -49,13 +43,12 @@ class Connexion{
         $result_UseRole = $this->db->request($sql);
         $role = $result_UseRole[0]['libelle'];
 
-        session_start();
-        $_SESSION['role']=$role;
+        $_SESSION['Role']=$role;
+        return TRUE;
     }
 
     public function CheckValidity($result){
         
-
         if (count($result) == 0){
             $arg = array("erreur" => "Votre email n'a pas été enregistré  !");
             Vue::AfficherVue("Erreur", $arg);
