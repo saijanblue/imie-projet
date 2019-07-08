@@ -1,14 +1,17 @@
 <?php
 
+/*
+Description : Permet de trouver une route pour l'utilisateur. la pramètre route dépend de l'url demandée.
+Le routeur va Trouver le controleur associé à la vue, c'est le controleur en question qui se chargera de l'affichage et des options associés (pagination, requête ajax, recherche, ect..)
+
+*/
     class   Routeur{
         public function __construct($request){
-
-
-            $this->trouverRoute($request);
+            self::trouverRoute($request);
         }
 
         public static function trouverRoute($request){
-            $controleur = $this->TrouverEtInstancierControleur($request);
+            $controleur = self::TrouverEtInstancierControleur($request);
         }
 
         public static function TrouverEtInstancierControleur($request){
