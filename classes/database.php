@@ -9,7 +9,7 @@ createur : pwacquez
 prérequis install : activer l'extension=php_pdo.dll dans "php.ini"
 */
 
-class database{
+class Database{
     function __construct($role){
         $this->Role = 'Administrateur';
         //Chargement des identifiants de connexion mysql

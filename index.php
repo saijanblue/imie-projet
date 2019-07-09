@@ -1,6 +1,7 @@
 <?php
 
-include "classes/authentification.php";
+include "classes/User.php";
+include "classes/Database.php";
 //On démarre une session
 session_start();
 //On décompose l'url, ceci permettra à terme de gérer les sous-requêtes, ex : \home\tab1\detail
@@ -39,10 +40,10 @@ Resume : Verification des Variables sessions && vérification des droits
     2em cas : l'utilisateur n'est pas authentifié dans ce cas on va rediriger l'utilisateur vers l'écran de connexion. Ceci afint d'obtenir une session utilisateur. 
 Note : les erreurs de formulaire pour l'écran de connexion est géré par le controleur "connexion" présent dans "./classes"
 */
-if (Authentification::CheckAuthentification() === TRUE ){
-    if (Authentification::CheckRight($Request, $_SESSION["Role"]) === TRUE ){
+if (User::is_logged_in() === TRUE ){
+    if (User::CheckRight($Request, $_SESSION["Role"]) === TRUE ){
         require_once($_SERVER['DOCUMENT_ROOT'].'/classes/Routeur.php');
-        $GLOBALS["db"] =  new database($_SESSION['Role']); 
+        $GLOBALS["db"] = new database($_SESSION['Role']); 
         new Routeur($Request);
     }
 }else{
