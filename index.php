@@ -3,7 +3,6 @@
 include "classes/authentification.php";
 //On démarre une session
 session_start();
-
 //On décompose l'url, ceci permettra à terme de gérer les sous-requêtes, ex : \home\tab1\detail
 
 $Url            = isset($_GET['url']) ? $_GET['url'] : "Home";
