@@ -3,7 +3,6 @@
 include "classes/authentification.php";
 //On démarre une session
 session_start();
-
 //On décompose l'url, ceci permettra à terme de gérer les sous-requêtes, ex : \home\tab1\detail
 
 $Url            = isset($_GET['url']) ? $_GET['url'] : "Home";
@@ -43,6 +42,7 @@ Note : les erreurs de formulaire pour l'écran de connexion est géré par le co
 if (Authentification::CheckAuthentification() === TRUE ){
     if (Authentification::CheckRight($Request, $_SESSION["Role"]) === TRUE ){
         require_once($_SERVER['DOCUMENT_ROOT'].'/classes/Routeur.php');
+        $GLOBALS["db"] =  new database($_SESSION['Role']); 
         new Routeur($Request);
     }
 }else{

@@ -38,9 +38,8 @@ class Connexion{
             $email = $_POST['Identifiant'];
             $Password = $_POST['Password'];
 
-            $this->db     = new database("Utilisateur");
             $sql    = "SELECT password, status, email, id_role, deleted FROM user WHERE email = '$email'";
-            $result = $this->db->request($sql);
+            $result = $GLOBALS["db"]->request($sql);
 
             /*
             resume : On va vérifier l'état du profil de l'utilisateur, est-il inactif ? supprimé par un admin ? email non valide en base ? mauvais password ? 
@@ -60,7 +59,7 @@ class Connexion{
 
     public function SetSession($id_role){
         $sql = "select id, libelle from user_role where id = $id_role";
-        $result_UseRole = $this->db->request($sql);
+        $result_UseRole = $GLOBALS["db"]->request($sql);
         $role = $result_UseRole[0]['libelle'];
 
         $_SESSION['Role']=$role;

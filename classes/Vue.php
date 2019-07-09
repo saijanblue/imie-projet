@@ -9,7 +9,24 @@ class Vue{
     }
 
     public static function AfficherVue($vue, $arg = false){
-        require_once("./vues/$vue.php");
+        switch($vue){
+            case "Header":
+                require_once("./public/include/$vue.php");
+            break;
+                require_once("./public/include/$vue.php");
+            case "Footer":
+                require_once("./public/include/$vue.php");
+            break;
+            case "Erreur":
+                require_once("./public/include/$vue.php");
+            break;
+            case "HeaderNav";
+                require_once("./public/include/$vue.php");
+            break;
+            default:
+                require_once("./public/vues/$vue.php");
+            break;
+        }
     }
 }
 
