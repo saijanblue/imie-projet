@@ -40,12 +40,56 @@ class Action {
     private $heures_td;
     private $heures_tp_tuteur;
     private $heures_tp_non_tuteur;
-
     private $rythme_formation;
-
     private $db;
-    public function __construct(){
-        $this->db = new database($_SESSION["Role"]);
+
+    public function __construct($id) {
+        $this->db = $GLOBALS["db"];
+
+    }
+
+    public function loadAction($id) {
+        $sql = "SELECT * FROM action WHERE id='" . $id . "'";
+
+        $result = $this->db->request($sql);
+
+        $this->id = $result["id"];
+        $this->rythme_formation = $result["rythme_formation"];
+        $this->niveaux_entree_obligatoire = $result["niveaux_entree_obligatoire"];
+        $this->modalite_alternance = $result["modalite_alternance"];
+        $this->modalite_enseignement = $result["modalite_enseignement"];
+        $this->condition_specific = $result["condition_specific"];
+        $this->possibilites_prises_charge = $result["possibilites_prises_charge"];
+        $this->lieu_formation = $result["lieu_formation"];
+        $this->modalite_entrees_sorties = $result["modalite_entrees_sorties"];
+        $this->formation = $result["formation"];
+        $this->restauration = $result["restauration"];
+        $this->hebergement = $result["hebergement"];
+        $this->transport = $result["transport"];
+        $this->acces_handicapes = $result["acces_handicapes"];
+        $this->langues_formation = $result["langues_formation"];
+        $this->modalite_recrutement = $result["modalite_recrutement"];
+        $this->modalite_pedagogique = $result["modalite_pedagogique"];
+        $this->frais_restant = $result["frais_restant"];
+        $this->prix_total_ttc = $result["prix_total_ttc"];
+        $this->duree_indicative = $result["duree_indicative"];
+        $this->nombre_heures_centre = $result["nombre_heures_centre"];
+        $this->nombre_heures_entreprise = $result["nombre_heures_entreprise"];
+        $this->nombre_heures_total = $result["nombre_heures_total"];
+        $this->conditions_prise_charge = $result["conditions_prise_charge"];
+        $this->conventionnement = $result["conventionnement"];
+        $this->duree_conventionnee = $result["duree_conventionnee"];
+        $this->organisme_formateur = $result["organisme_formateur"];
+        $this->financement_formation = $result["financement_formation"];
+        $this->nombre_places = $result["nombre_places"];
+        $this->moyens_pedagogiques = $result["moyens_pedagogiques"];
+        $this->responsable_enseignement = $result["responsable_enseignement"];
+        $this->heures_cours = $result["heures_cours"];
+        $this->heures_td = $result["heures_td"];
+        $this->heures_tp_non_tuteur = $result["heures_tp_non_tuteur"];
+        $this->heures_tp_tuteur = $result["heures_tp_tuteur"];
+
+        return true;
     }
 
     /**
@@ -80,12 +124,12 @@ class Action {
      * @return mixed
      */
     public function getCodePublicVise() {
-        $sql = "SELECT * FROM action_code WHERE id_action='".$this->id."'";
+        $sql = "SELECT * FROM action_code WHERE id_action='" . $this->id . "'";
         $codePublicVises = array();
         $results = $this->db->request($sql);
 
-        foreach ($results as $key => $value){
-            $sql2 = "SELECT * FROM code WHERE id='".$value['id_code']."'";
+        foreach ($results as $key => $value) {
+            $sql2 = "SELECT * FROM code WHERE id='" . $value['id_code'] . "'";
             $codePublicVises[] = $this->db->request($sql2);
         }
 
@@ -104,7 +148,7 @@ class Action {
      * @return mixed
      */
     public function getNiveauxEntreeObligatoire() {
-        $sql = "SELECT * FROM dict_boolean WHERE id='".$this->niveaux_entree_obligatoire."'";
+        $sql = "SELECT * FROM dict_boolean WHERE id='" . $this->niveaux_entree_obligatoire . "'";
         return $this->db->request($sql);
     }
 
@@ -133,7 +177,7 @@ class Action {
      * @return mixed
      */
     public function getModaliteEnseignement() {
-        $sql = "SELECT * FROM dict_modalites_enseignement WHERE id='".$this->modalite_enseignement."'";
+        $sql = "SELECT * FROM dict_modalites_enseignement WHERE id='" . $this->modalite_enseignement . "'";
         return $this->db->request($sql);
     }
 
@@ -162,7 +206,7 @@ class Action {
      * @return mixed
      */
     public function getPossibilitesPrisesCharge() {
-        $sql = "SELECT * FROM dict_boolean WHERE id='".$this->possibilites_prises_charge."'";
+        $sql = "SELECT * FROM dict_boolean WHERE id='" . $this->possibilites_prises_charge . "'";
         return $this->db->request($sql);
     }
 
@@ -177,7 +221,7 @@ class Action {
      * @return mixed
      */
     public function getLieuFormation() {
-        $sql = "SELECT * FROM coordonnees WHERE id='".$this->lieu_formation."'";
+        $sql = "SELECT * FROM coordonnees WHERE id='" . $this->lieu_formation . "'";
         return $this->db->request($sql);
     }
 
@@ -192,7 +236,7 @@ class Action {
      * @return mixed
      */
     public function getModaliteEntreesSorties() {
-        $sql = "SELECT * FROM dicte_modalte_es WHERE id='".$this->modalite_entrees_sorties."'";
+        $sql = "SELECT * FROM dicte_modalte_es WHERE id='" . $this->modalite_entrees_sorties . "'";
         return $this->db->request($sql);
     }
 
@@ -207,7 +251,7 @@ class Action {
      * @return mixed
      */
     public function getFormation() {
-        $sql = "SELECT * FROM formation WHERE id='".$this->formation."'";
+        $sql = "SELECT * FROM formation WHERE id='" . $this->formation . "'";
         return $this->db->request($sql);
     }
 
@@ -418,7 +462,7 @@ class Action {
      * @return mixed
      */
     public function getConventionnement() {
-        $sql = "SELECT * FROM dict_boolean WHERE id='".$this->conventionnement."'";
+        $sql = "SELECT * FROM dict_boolean WHERE id='" . $this->conventionnement . "'";
         return $this->db->request($sql);
     }
 
@@ -447,7 +491,7 @@ class Action {
      * @return mixed
      */
     public function getOrganismeFormateur() {
-        $sql = "SELECT * FROM organisme_formateur WHERE id='".$this->organisme_formateur."'";
+        $sql = "SELECT * FROM organisme_formateur WHERE id='" . $this->organisme_formateur . "'";
         return $this->db->request($sql);
     }
 
@@ -462,11 +506,11 @@ class Action {
      * @return mixed
      */
     public function getOrganismeFinanceur() {
-        $sql = "SELECT * FROM action_organisme_financeur WHERE id_action='".$this->id."'";
+        $sql = "SELECT * FROM action_organisme_financeur WHERE id_action='" . $this->id . "'";
         $orgaFinanceurs = array();
         $results = $this->db->request($sql);
-        foreach ($results as $key => $value){
-            $sql2 = "SELECT * FROM organisme_financeur WHERE id='".$value['id_organisme_financeur']."'";
+        foreach ($results as $key => $value) {
+            $sql2 = "SELECT * FROM organisme_financeur WHERE id='" . $value['id_organisme_financeur'] . "'";
             $orgaFinanceurs[] = $this->db->request($sql2);
         }
 
@@ -526,7 +570,7 @@ class Action {
      * @return mixed
      */
     public function getResponsableEnseignement() {
-        $sql = "SELECT * FROM coordonnees WHERE id='".$this->responsable_enseignement."'";
+        $sql = "SELECT * FROM coordonnees WHERE id='" . $this->responsable_enseignement . "'";
         return $this->db->request($sql);
     }
 
@@ -593,8 +637,8 @@ class Action {
         $this->heures_tp_non_tuteur = $heures_tp_non_tuteur;
     }
 
-    public function getSessions(){
-        $sql = "SELECT * FROM session WHERE action='".$this->id."'";
+    public function getSessions() {
+        $sql = "SELECT * FROM session WHERE action='" . $this->id . "'";
         return $this->db->request($sql);
     }
 
