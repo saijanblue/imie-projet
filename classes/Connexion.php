@@ -55,7 +55,6 @@ class Connexion{
             echo "aucun param";
             Vue::AfficherVue("Header");
             Vue::AfficherVue("Connexion");
-            Vue::AfficherVue("Footer");
         }
     }
 

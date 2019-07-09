@@ -11,6 +11,7 @@ A terme le controleur pourra gérer les diffèrentes vues associées à cette pa
 class Home{
     function __construct(){
         Vue::AfficherVue("Header");
+        Vue::AfficherVue("HeaderNav");
         Vue::AfficherVue("Home");
         Vue::AfficherVue("Footer");
     }

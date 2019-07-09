@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+.container{
+	margin-left : -15px!important;
+	margin-right : -15px!important;
+}
+
+body{
+	width: 100%;
+	padding: 0px !important;
+	margin: 0px !important;
+}
+h1, h2, h3, h4{
+	color: #003853;
+	font-family: 'Open Sans', sans-serif;
+}
+p{
+	font-family: 'Open Sans', sans-serif;
+}
+main{
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+/**********HEADER**********/
+.logo-wise-wrapper{
+	left: 30%;
+	position: absolute;
+}
+.logo-wise{
+	width: 120px;
+	z-index: 9999;
+	overflow: visible;
+	left: 35%;
+}
+.bandeau{
+	background-image: url("img/bg-wise.jpg");
+	background-size: cover;
+	height: 270px !important;
+}
+.overlay{
+	background-color: rgba(255, 255, 255, 0.5);
+	height: 270px !important;
+	width: 100%;
+	position: absolute;
+}
+header{
+	position: relative;
+}
+header h1{
+	text-align: center;
+	font-size: 26px;
+}
+.navigation-mobile{
+	background-color: #003853;
+	width: 100%;
+	height: 70px;
+}
+
+.navigation-mobile > ul, li{
+	float:left;
+	margin-left:50px;
+}
+
+.icon-connexion, .menu-hamburger{
+	width: 50px;
+	padding: 3px;
+	margin-left: 50px;
+	float:left;
+}
+
+/**********FIN HEADER**********/
+
+
+
+
+
+
+
+/**********ACCUEIL**********/
+
+main h2{
+	text-align: center;
+}
+main .card-descr{
+	padding: 0px 35px;
+	color: #003853;
+	font-family: 'Open Sans', sans-serif;
+}
+main .card-descr h4{
+	margin-bottom: 5px;
+	font-size: 18px;
+}
+main .card-descr p{
+	margin-top: 6px;
+}
+main .card-picto{
+	width: 100%;
+	height: 240px;
+	margin-top: 20px;
+}
+main .card-picto img{
+	width: 70px;
+	margin: 0 auto;
+}
+main .card-picto div:nth-child(1){
+	width: 50%;
+	height: 120px;
+	background-color: #003853;
+	float: left;
+}
+main .card-picto div:nth-child(2){
+	width: 50%;
+	height: 120px;
+	background-color: #009ec1;
+	float: right;
+}
+main .card-picto div:nth-child(3){
+	width: 50%;
+	height: 120px;
+	background-color: #009ec1;
+	float: left;
+}
+main .card-picto div:nth-child(4){
+	width: 50%;
+	height: 120px;
+	background-color: #003853;
+	float: right;
+}
+
+/**********FIN ACCUEIL**********/
+
+
+
+
+
+
+
+/**********OFFRE**********/
+.left-blc-offre{
+	/*width: 42%;*/ 
+	float: left;
+	padding-left: 10px;
+}
+.right-blc-offre{
+	/*width: 42%;*/ 
+	float: right;
+	padding-right: 10px;
+}
+.left-blc-offre .offre select, .right-blc-offre .offre select{
+	float: right;
+}
+.left-blc-offre .offre span, .right-blc-offre .offre span{
+	width: 50% !important;
+}
+.left-blc-offre .offre, .right-blc-offre .offre{
+	height: 35px !important;
+}
+.trie-offre {
+    position: relative;
+    height: 260px;
+}
+.btn-type{
+	padding: 10px 20px;
+	color: white;
+	text-decoration: none;
+	border-top-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+	text-transform: uppercase;
+	font-family: "Open Sans"
+}
+.btn-type:hover {
+	opacity: 0.5;
+	box-shadow: 3px 3px 3px #646463;
+}
+.light-blue{
+	background: #009EC1;
+}
+.btn-centrer{
+	margin-left: auto;
+  	margin-right: auto;
+  	width: 140px;
+}
+/**********FIN OFFRE**********/
+
+
+
+
+
+
+
+
+
+/**********FOOTER**********/
+.footer-home{
+	background-color: #003853;
+	height: 200px;
+	position: relative;
+}
+.footer-home p{
+	margin: 0px;
+}
+.logo-footer{
+	position: absolute;
+	left: -14%;
+	opacity: 0.7;
+	height: 200px;
+}
+.footer-content{
+	width: 70%;
+	float: right;
+	color: white;
+}
+.footer-descr{
+	text-align: justify;
+	font-size: 12px;
+	padding: 0px 10px;
+	margin: 15px 15px 0px 0px !important;
+}
+.footer-content a{
+ 	font-size: 12px;
+ 	font-family: 'Open Sans', sans-serif;
+ 	color: white;
+ 	text-decoration: underline;
+ 	padding: 0px 10px;
+}
+.btn-contact-footer{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background-color: white;
+	border: 4px solid #003853;
+	color: #003853;
+	padding: 5px 10px;
+	text-decoration: none;
+	font-family: 'Open Sans', sans-serif;
+}
+/**********FIN FOOTER**********/
