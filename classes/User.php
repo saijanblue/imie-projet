@@ -11,6 +11,11 @@ class User{
   public $result;//resultat de requête sql
 
   function __construct(){
+    
+    if (!isset($GLOBALS["db"])){
+      $GLOBALS["db"] = new database("Utilisateur"); 
+    }
+
     //parent::__construct();
   }
 
@@ -38,9 +43,10 @@ class User{
 
   public  function login($email,$password){
 
-    $GLOBALS['db']     = new database("Utilisateur");
+    //$hashed = $this->get_user_hash($useremail);
+
     $sql    = "SELECT password, status, email, id_role, deleted FROM user WHERE email = '$email'";
-    $result = $GLOBALS['db']->request($sql);
+    $result = $GLOBALS["db"]->request($sql);
 
     if ($this->CheckValidity($result) == TRUE){
       if ( $this->SetSession($result[0]['id_role']) == TRUE){
@@ -48,13 +54,14 @@ class User{
        header( "Refresh:2; url=http://imie-projet/Home");
        }      
     }
-    /*
-    $hashed = $this->get_user_hash($useremail);
+    
+    $id_role = $result[0]['id_role'];
+
     $sql = "select id, libelle from user_role where id = $id_role";
     
     $result_UseRole = $GLOBALS["db"]->request($sql);
     $role = $result_UseRole[0]['libelle'];
-    */
+    
 
     
     /*

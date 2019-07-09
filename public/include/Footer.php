@@ -1,19 +1,11 @@
-</body>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <footer class="footer-home">
-             		<img class="logo-footer" src="img/wiselogoblanc.png">
-             		<div class="footer-content">
-             			<p class="footer-descr">Le programme WISE - West Intelligent Systems& Electronics - fédère à l'Ouest l'écosystème de l'électronique et des systèmes intelligents. Il est coordonné par WE Network, association qui réunit 200 structures adhérentes, représentant 25 000 emplois.</p>
-             			<a href="">Mentions légales</a>
-             			<a href="">Partenaires</a>
-             		</div>
-             		<a class="btn-contact-footer" href="#">
-             			CONTACTEZ-NOUS
-             		</a>
-            </footer>
-        </div>
-    </div>
-</div>
-</html>
+<footer class="footer-home bg-primary" style="margin-top: 20px">
+ 		<div class="col-2 offset-5">
+	 		<span><a style="color: white" href="">Mentions légales</a></span>
+	 		<span><a style="color: white" href="">Contact</a></span>
+ 		</div>
+</footer>
+	 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>	
+	 <script type="text/javascript" charset="utf8" src="http://localhost/imie-projet/public/lib/DataTables/datatables.js"></script>
+	<script type="text/javascript" src="http://localhost/imie-projet/js/scriptCommons.js"></script>
+ </body>
+ </html>

@@ -23,6 +23,10 @@ Le routeur va Trouver le controleur associé à la vue, c'est le controleur en q
                 break;
                 case "Connexion":
                 break;
+                case "Formation":
+                    include 'Formation.php';
+                    new Formation();
+                break;
             }
         }
     }

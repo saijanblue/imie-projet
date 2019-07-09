@@ -1,0 +1,90 @@
+body{
+	margin: 0;
+}
+a {
+	text-decoration: none;
+	color: #0086A5;
+}
+h2 {
+	font-size: xx-large;
+	color: #0086A5;
+}
+/*Parametre css à gérer en JS => active en bold*/
+
+header
+{
+    background: url(../img/training.jpg);
+    height: 20rem;
+    background-position: center 65%;
+    position: relative;
+}
+header .overlay {
+	width: 100%;
+	height: 100%;
+	background: #ffffff;
+	opacity: 0.5;
+	top: 0;
+}
+header nav {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	background: #ffffff;
+}
+header nav ul {
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	margin: 20px;
+}
+header h1 {
+	position: absolute;
+    top: 68%;
+    color: #003854;
+    font-size: 42px;
+    margin-left: 50px
+}
+
+header .logo-wise {
+	width: 93px;
+    text-align: center;
+}
+@media screen and (max-width: 768px) {
+    h1{
+        font-size:30px !important;
+    }
+    li {
+    	font-size: 14px;
+    }
+}
+.home-content {
+	display: flex;
+	flex-basis: 50%;
+	justify-content: space-around;
+	align-items: center;
+	margin: 20px;
+}
+.card-descr {
+	width: 35%
+}
+.compte-forma {
+	background: #646463;
+    padding: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: x-large;
+    color: white;
+}
+.compte-group {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.picto-compte {
+	width: 100px;
+	height: 100px;
+}

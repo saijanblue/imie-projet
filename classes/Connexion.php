@@ -15,7 +15,6 @@ CheckValidity() : gére les messages d'erreur du formulaire, et renvoit les erre
 
 //mettre database en variable globale !
 include "Vue.php";
-include "database.php";
 
 class Connexion{
 
