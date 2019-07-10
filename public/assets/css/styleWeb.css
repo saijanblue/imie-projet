@@ -1,5 +1,10 @@
 body{
-	margin: 0;
+	margin: 0px !important;
+	padding: 0px !important;
+}
+html{
+	padding: 0px !important; 
+	margin: 0px !important;
 }
 a {
 	text-decoration: none;
@@ -9,6 +14,10 @@ h2 {
 	font-size: xx-large;
 	color: #0086A5;
 }
+main{
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
 /*Parametre css à gérer en JS => active en bold*/
 
 header
@@ -17,6 +26,9 @@ header
     height: 20rem;
     background-position: center 65%;
     position: relative;
+}
+header li{
+	text-transform: uppercase;
 }
 header .overlay {
 	width: 100%;
@@ -38,6 +50,9 @@ header nav ul {
 	justify-content: space-between;
 	margin: 20px;
 }
+.nav-menu {
+	width: 30%;
+}
 header h1 {
 	position: absolute;
     top: 68%;
@@ -45,18 +60,15 @@ header h1 {
     font-size: 42px;
     margin-left: 50px
 }
-
-header .logo-wise {
-	width: 93px;
-    text-align: center;
+header .bandeau {
+	position: absolute;
+    top: 0;
+    left: 42%;
+    background: url("../img/wise-header-home-cartouche.png");
 }
-@media screen and (max-width: 768px) {
-    h1{
-        font-size:30px !important;
-    }
-    li {
-    	font-size: 14px;
-    }
+header .logo-wise {
+	width: 120px;
+    text-align: center;
 }
 .home-content {
 	display: flex;
@@ -88,3 +100,66 @@ header .logo-wise {
 	width: 100px;
 	height: 100px;
 }
+.page-en-savoir-plus .container:nth-child(2) h3{
+	color: #646463;
+}
+.page-en-savoir-plus .container:nth-child(2) span{
+	color: #003853;
+}
+
+
+
+
+/**********FOOTER**********/
+.footer-home{
+	background-color: #003853;
+	height: 200px;
+	position: relative;
+}
+.footer-home p{
+	margin: 0px;
+}
+.logo-footer{
+	position: absolute;
+	left: 5%;
+	opacity: 0.7;
+	height: 200px;
+}
+.footer-content{
+	width: 70%;
+	float: right;
+	color: white;
+	padding: 10px 100px;
+}
+.footer-descr{
+	text-align: justify;
+	font-size: 20px;
+	padding: 0px 10px;
+	margin: 15px 15px 0px 0px !important;
+}
+.footer-content a{
+ 	font-size: 18px;
+ 	font-family: 'Open Sans', sans-serif;
+ 	color: white;
+ 	text-decoration: underline;
+ 	padding: 0px 10px;
+}
+.btn-contact-footer{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background-color: white;
+	border: 8px solid #003853;
+	color: #003853;
+	padding: 5px 10px;
+	text-decoration: none;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+}
+.form-connexion input{
+	border-radius: 0px !important;
+	border: 3px solid #C9C7C7;
+	height: 50px !important;
+	margin-bottom: 15px;
+}
+/**********FIN FOOTER**********/

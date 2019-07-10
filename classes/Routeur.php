@@ -7,24 +7,24 @@ Le routeur va Trouver le controleur associé à la vue, c'est le controleur en q
 */
 
 class   Routeur {
-    public function __construct($request, $Params = false) {
-        self::trouverRoute($request, $Params);
+    public function __construct($request) {
+        self::trouverRoute($request);
     }
 
-    public static function trouverRoute($request, $Params = false) {
-        self::TrouverEtInstancierControleur($request, $Params);
+    public static function trouverRoute($request) {
+        self::TrouverEtInstancierControleur($request);
     }
 
-    public static function TrouverEtInstancierControleur($request, $Params = false) {
-        /*if ($request[0] . "/" . $request[1] . "/" . $request[2] === "formation/edit/offre") {
+    public static function TrouverEtInstancierControleur($request) {
+        if ($request[0] . "/" . $request[1] . "/" . $request[2] === "formation/edit/offre") {
             include 'Formation.php';
             $formation = new Formation();
             if (isset($request[3])) {
                 $formation->editFormation($request[3]);
             }
-        }*/
+        }
 
-        if ($request[0] === "formation") {
+        /*if ($request[0] === "formation") {
             include 'Formation.php';
             $formation = new Formation();
             if ($request[1]) {
@@ -46,7 +46,7 @@ class   Routeur {
             } else {
                 $formation->gridFormation();
             }
-        }
+        }*/
 
 
         switch ($request) {
@@ -60,13 +60,6 @@ class   Routeur {
                 include 'Formation.php';
                 $formation = new Formation();
                 $formation->gridFormation();
-                break;
-            case "formation/edit/offre":
-                include 'Formation.php';
-                $formation = new Formation();
-                if (isset($Params['id'])) {
-                    $formation->editFormation(1);
-                }
                 break;
             default:
                 break;

@@ -34,7 +34,7 @@ main{
 	left: 35%;
 }
 .bandeau{
-	background-image: url("img/bg-wise.jpg");
+	background-image: url("../img/bg-wise.jpg");
 	background-size: cover;
 	height: 270px !important;
 }
@@ -202,7 +202,7 @@ main .card-picto div:nth-child(4){
 }
 .logo-footer{
 	position: absolute;
-	left: -14%;
+
 	opacity: 0.7;
 	height: 200px;
 }
