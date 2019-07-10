@@ -44,7 +44,7 @@ class User{
   public  function login($email,$password){
 
     //$hashed = $this->get_user_hash($useremail);
-
+    return true;
     $sql    = "SELECT password, status, email, id_role, deleted FROM user WHERE email = '$email'";
     $result = $GLOBALS["db"]->request($sql);
 

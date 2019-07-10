@@ -1,29 +1,67 @@
-$(document).ready( function () {
-	var table = 
-    $('#table-domain').DataTable({
-  		"autoWidth": false,
-  		"fixedHeader": true,
-  		"responsive":true,
-  		"pageLength": 50,
-      "responsive": true,
-  		"language": 
-  		{ search: "" },
-  		"columns": [
-        { name: 'id-domain' },
-        { name: 'domain' },
-        { name:'tag' },
-        { name: 'graduate' },
-        { name: 'certif' },
-        { name: 'details' }]
-	});
-	$('.dataTables_filter input').addClass('search-input full');
-	$('.dataTables_filter input').attr('placeholder','Search');
-	
-	$(".option-col").on( 'click', function (e) {
-        e.preventDefault();
-        var choiceCol = $(this).attr('value');
-        var column = table.column($(this).attr("value")+':name');
-        column.visible( ! column.visible() );
-    } );
-		
-	});
+var editor;
+
+$(document).ready(function () {
+    var table = $('#table-domain').DataTable({
+        dom: 'Blfrtip',
+        "autoWidth": false,
+        "fixedHeader": true,
+        "ordering": true,
+        "responsive": true,
+        "pageLength": 50,
+        "processing": false,
+        "serverSide": true,
+        select: {
+            style: 'os',
+            selector: 'td:first-child'
+        },
+        "ajax": "./ajax/formation_script.php",
+        "language":
+            {search: ""},
+        "columns": [
+
+            {data: 'formation.domaine_formation'},
+            {data: 'formation.objectif_formation'},
+            {data: 'formation.resultats_attendus'},
+            {data: 'formation.contenu_formation'},
+            {data: 'dict_boolean.val'},
+            {data: 'coordonnees.nom'},
+            {data: 'dict_type_parcours.val'},
+            {data: 'dne.val'},
+            {data: 'dns.val'},
+            { data: null },
+            {data: 'organisme_formation_responsable.nom_organisme'},
+            {data: 'formation.eligibilite_cpf'},
+            {data: 'formation.validation'},
+            {
+                data: null,
+                defaultContent: 'actions',
+                // className: 'select-checkbox',
+                orderable: false
+            },
+
+            // { data: 'details' }
+        ],
+        "buttons": [
+            {
+                extend: 'csv',
+                text: 'Export CSV',
+                className: 'btn-space',
+                exportOptions: {
+                    orthogonal: null
+                }
+            },
+        ]
+
+
+    });
+
+    // $('.dataTables_filter input').addClass('search-input full').attr('placeholder','Search');
+    //
+    // $(".option-col").on( 'click', function (e) {
+    //     e.preventDefault();
+    //     // var choiceCol = $(this).attr('value');
+    //     var column = table.column($(this).attr("value")+':data');
+    //     column.visible( ! column.visible() );
+    // } );
+
+});

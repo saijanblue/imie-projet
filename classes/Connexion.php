@@ -34,7 +34,7 @@ class Connexion{
         if (isset($_POST['Identifiant']) && isset($_POST['Password']) ){
             $email = $_POST['Identifiant'];
             $Password = $_POST['Password'];
-            $user =  new User();
+            $user =  new ModelUser();
             $user->login($email, $Password);
         }else{
             Vue::AfficherVue("Header");

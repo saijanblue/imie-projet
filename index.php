@@ -40,14 +40,14 @@ Resume : Verification des Variables sessions && vérification des droits
     2em cas : l'utilisateur n'est pas authentifié dans ce cas on va rediriger l'utilisateur vers l'écran de connexion. Ceci afint d'obtenir une session utilisateur. 
 Note : les erreurs de formulaire pour l'écran de connexion est géré par le controleur "connexion" présent dans "./classes"
 */
-if (User::is_logged_in() === TRUE ){
-    if (User::CheckRight($Request, $_SESSION["Role"]) === TRUE ){
-        require_once($_SERVER['DOCUMENT_ROOT'].'/classes/Routeur.php');
-        $GLOBALS["db"] = new database($_SESSION['Role']); 
+//if (User::is_logged_in() === TRUE ){
+//    if (User::CheckRight($Request, $_SESSION["Role"]) === TRUE ){
+        require_once('./classes/Routeur.php');
+        $GLOBALS["db"] = new database("Utilisateur");
         new Routeur($Request);
-    }
-}else{
-    require_once("classes/Connexion.php");
-    new Connexion();
-}
+//    }
+//}else{
+//    require_once("classes/Connexion.php");
+//    new Connexion();
+//}
 ?>

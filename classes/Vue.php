@@ -11,20 +11,20 @@ class Vue{
     public static function AfficherVue($vue, $arg = false){
         switch($vue){
             case "Header":
-            require_once($_SERVER["DOCUMENT_ROOT"]."/public/include/$vue.php");
+            require_once("./public/include/$vue.php");
             break;
-            require_once($_SERVER["DOCUMENT_ROOT"]."/public/include/$vue.php");
+            require_once("./public/include/$vue.php");
             case "Footer":
-            require_once($_SERVER["DOCUMENT_ROOT"]."/public/include/$vue.php");
+            require_once("./public/include/$vue.php");
             break;
             case "Erreur":
-            require_once($_SERVER["DOCUMENT_ROOT"]."/public/include/$vue.php");
+            require_once("./public/include/$vue.php");
             break;
             case "HeaderNav";
-            require_once($_SERVER["DOCUMENT_ROOT"]."/public/include/$vue.php");
+            require_once("./public/include/$vue.php");
             break;
             default:
-            require_once($_SERVER["DOCUMENT_ROOT"]."/public/vues/$vue.php");
+            require_once("./public/vues/$vue.php");
             break;
         }
     }
