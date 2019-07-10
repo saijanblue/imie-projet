@@ -33,11 +33,15 @@ $(document).ready(function () {
             {data: 'formation.eligibilite_cpf'},
             {data: 'formation.validation'},
             {
-                data: null,
-                defaultContent: 'actions',
-                // className: 'select-checkbox',
-                orderable: false
-            },
+                "data": "formation.id",
+                "render": function(data, type, row, meta){
+                    debugger;
+                    data = '<a href="formation/edit/offre' + data + '">Editer </a>' +
+                        '<a href="formation/delete/' + data + '">Supprimer </a>' +
+                        '<a href="formation/list/' + data + '">Actions</a>';
+                    return data;
+                }
+            }
 
             // { data: 'details' }
         ],
@@ -57,11 +61,11 @@ $(document).ready(function () {
 
     // $('.dataTables_filter input').addClass('search-input full').attr('placeholder','Search');
     //
-    // $(".option-col").on( 'click', function (e) {
-    //     e.preventDefault();
-    //     // var choiceCol = $(this).attr('value');
-    //     var column = table.column($(this).attr("value")+':data');
-    //     column.visible( ! column.visible() );
-    // } );
+     $(".option-col").on( 'click', function (e) {
+         e.preventDefault();
+         // var choiceCol = $(this).attr('value');
+         var column = table.column($(this).attr("value")+':data');
+         column.visible( ! column.visible() );
+     } );
 
 });

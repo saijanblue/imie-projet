@@ -10,7 +10,7 @@
  		</nav>
  		<div class="col-1 offset-5" style="z-index: 10">
  			<div class="logo-wise-wrapper">
- 				<img class="logo-wise" src="../img/WiseLogo.png" >	
+ 				<img class="logo-wise" src="http://localhost/projets/Wise-V2/imie-projet/public/assets/img/WiseLogo.png" >
  			</div>
  		</div>
  		<div class="overlay" style="position: absolute;"></div>

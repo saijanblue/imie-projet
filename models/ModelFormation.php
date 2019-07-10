@@ -29,7 +29,6 @@ class ModelFormation {
 
     public function loadFormation($id){
         $sql = "SELECT * FROM formation WHERE id='" . $id . "'";
-
         $result = $this->db->request($sql)[0];
 
         $this->domaine_formation = $result["domaine_formation"];
@@ -215,10 +214,14 @@ class ModelFormation {
      * @return mixed
      */
     public function getCertifiante() {
-        $sql = "SELECT * FROM dict_boolean WHERE id='" . $this->certifiante . "'";
+        return $this->certifiante;
+    }
+
+    public function getValueCertifiante($id) {
+        $sql = "SELECT * FROM dict_boolean WHERE id='" . $id . "'";
         $result = $this->db->request($sql);
         if ($result){
-            return $result;
+            return $result[0]["val"];
         }
     }
 
@@ -233,10 +236,14 @@ class ModelFormation {
      * @return mixed
      */
     public function getContactFormation() {
-        $sql = "SELECT * FROM coordonnees WHERE id='" . $this->contact_formation . "'";
+        return $this->contact_formation;
+    }
+
+    public function getValueContactFormation($id) {
+        $sql = "SELECT * FROM coordonnees WHERE id='" . $id . "'";
         $result = $this->db->request($sql);
         if ($result){
-            return $result;
+            return $result[0]['nom'].' '.$result[0]['prenom'];
         }
     }
 
@@ -251,10 +258,13 @@ class ModelFormation {
      * @return mixed
      */
     public function getParcoursFormation() {
-        $sql = "SELECT * FROM dict_type_parcours WHERE id='" . $this->parcours_formation . "'";
+        return $this->parcours_formation;
+    }
+    public function getValueParcoursFormation($id) {
+        $sql = "SELECT * FROM dict_type_parcours WHERE id='" . $id . "'";
         $result = $this->db->request($sql);
         if ($result){
-            return $result;
+            return $result[0]["val"];
         }
     }
 
@@ -269,10 +279,13 @@ class ModelFormation {
      * @return mixed
      */
     public function getCodeNiveauEntree() {
-        $sql = "SELECT * FROM dict_niveaux WHERE id='" . $this->code_niveau_entree . "'";
+        return $this->code_niveau_entree;
+    }
+    public function getValueCodeNiveauEntree($id) {
+        $sql = "SELECT * FROM dict_niveaux WHERE id='" . $id . "'";
         $result = $this->db->request($sql);
         if ($result){
-            return $result;
+            return $result[0]["val"];
         }
     }
 
@@ -287,10 +300,13 @@ class ModelFormation {
      * @return mixed
      */
     public function getCodeNiveauSortie() {
-        $sql = "SELECT * FROM dict_niveaux WHERE id='" . $this->code_niveau_sortie . "'";
+        return $this->code_niveau_sortie;
+    }
+    public function getValueCodeNiveauSortie($id) {
+        $sql = "SELECT * FROM dict_niveaux WHERE id='" . $id . "'";
         $result = $this->db->request($sql);
         if ($result){
-            return $result;
+            return $result[0]["val"];
         }
     }
 
@@ -323,10 +339,13 @@ class ModelFormation {
      * @return mixed
      */
     public function getOrganismeFormationResponsable() {
-        $sql = "SELECT * FROM organisme_formation_responsable WHERE id='" . $this->organisme_formation_responsable . "'";
+        return $this->organisme_formation_responsable;
+    }
+    public function getValueOrganismeFormationResponsable($id) {
+        $sql = "SELECT * FROM organisme_formation_responsable WHERE id='" . $id . "'";
         $result = $this->db->request($sql);
         if ($result){
-            return $result;
+            return $result[0]["nom_organisme"];
         }
     }
 
