@@ -19,7 +19,7 @@ class Database{
         $Utilisateur = $this->FichierConfDatabase['NomUtilisateur'];
         $Password = $this->FichierConfDatabase['Password'];
 
-        $this->db = new PDO('mysql:host=localhost;dbname='.$Nombase, $Utilisateur, $Password);
+        $this->db = new PDO('mysql:host=localhost;dbname='.$Nombase, $Utilisateur, $Password,array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
     }
 
     public function request($sql){

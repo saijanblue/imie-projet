@@ -3,7 +3,7 @@ $(document).ready(function () {
         dom: 'Blfrtip',
         "autoWidth": false,
         "fixedHeader": true,
-        "ordering": true,
+        "ordering": false,
         "responsive": true,
         "pageLength": 50,
         "language":
@@ -27,6 +27,7 @@ $(document).ready(function () {
         "ajax": "./ajax/formation_script.php",
         "columns": [
 
+            {data: 'formation.intitule_formation'},
             {data: 'formation.domaine_formation'},
             {data: 'formation.objectif_formation'},
             {data: 'formation.resultats_attendus'},

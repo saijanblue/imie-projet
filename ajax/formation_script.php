@@ -18,6 +18,7 @@ use DataTables\Editor;
 Editor::inst($db,'formation','id')
     ->fields(
         Editor\Field::inst('formation.id'),
+        Editor\Field::inst('formation.intitule_formation'),
         Editor\Field::inst('formation.domaine_formation'),
         Editor\Field::inst('formation.objectif_formation'),
         Editor\Field::inst('formation.resultats_attendus'),

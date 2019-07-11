@@ -4,18 +4,61 @@ include "./models/ModelFormation.php";
 include "./models/ModelCodification.php";
 include "Vue.php";
 
-class Formation {
+class Formation
+{
 
     public $formation;
+    public $codification;
 
-    function __construct() {
+    function __construct()
+    {
         $this->formation = new ModelFormation();
+        $this->codification = new ModelCodification();
 
 
     }
 
 
-    public function getAllFormations() {
+    public function import()
+    {
+
+        $fichier = $_FILES['file']['name'];
+
+        if ($fichier) {
+            $fp = fopen($_FILES['file']['tmp_name'], "r");
+
+            $cpt = 0;
+            echo "Importation réussie";
+            while (!feof($fp)) {
+                $ligne = fgets($fp, 4096);
+                $liste = explode(";", $ligne);
+                if ($cpt == 0) {
+                    $cpt++;
+                    continue;
+                }
+                $this->formation->setIntituleFormation($liste[0]);
+                $this->formation->setDomaineFormation($liste[1]);
+                $this->formation->setObjectifFormation($liste[2]);
+                $this->formation->setResultatsAttendus($liste[3]);
+                $this->formation->setContenuFormation($liste[4]);
+                $this->formation->setCertifiante($this->formation->getIdCertifiante($liste[5]));
+                $this->formation->setContactFormation($this->formation->getIdContactFormation(explode(" ", $liste[6])));
+                $this->formation->setParcoursFormation($this->formation->getIdParcoursFormation($liste[7]));
+                $this->formation->setCodeNiveauEntree($this->formation->getIdCodeNiveauEntree($liste[8]));
+                $this->formation->setCodeNiveauSortie($this->formation->getIdCodeNiveauSortie($liste[9]));
+                $this->formation->setUrlFormation($liste[10]);
+                $this->formation->setOrganismeFormationResponsable($this->formation->getIdOrganismeFormationResponsable($liste[11]));
+
+                $this->formation->saveFormation("insert");
+            }
+            header("Location: ".(explode('index.php', $_SERVER['PHP_SELF']))[0]."formation");
+        } else {
+            echo "Importation echouée";
+        }
+    }
+
+    public function getAllFormations()
+    {
         $result = $this->formation->getAllFormation();
 
         foreach ($result as $key => $val) {
@@ -31,11 +74,11 @@ class Formation {
             $result[$key]["modules_prerequis"] = $this->formation->getModulesPrerequis()[0][1];
         }
 
-        echo json_encode($result);
         return $result;
     }
 
-    public function create() {
+    public function create()
+    {
         $this->formation->setDomaineFormation($_POST['domaine_formation']);
         $this->formation->setObjectifFormation($_POST['objectif_formation']);
         $this->formation->setResultatsAttendus($_POST['resultats_attendus']);
@@ -54,12 +97,14 @@ class Formation {
         return $this->formation->saveFormation("insert");
     }
 
-    public function delete() {
+    public function delete()
+    {
         $this->formation->setId($_POST['id']);
         return $this->formation->saveFormation("delete");
     }
 
-    public function update() {
+    public function update()
+    {
         //$this->formation->setId($_POST['id']);
         if ($_POST['domaine_formation']) {
             $this->formation->setDomaineFormation($_POST['domaine_formation']);
@@ -109,32 +154,115 @@ class Formation {
         return true;
     }
 
-    public function save() {
+    public function save()
+    {
         return $this->formation->saveFormation("update");
     }
-    public function gridFormation() {
+
+    public function gridFormation()
+    {
         Vue::AfficherVue("Header");
         Vue::AfficherVue("HeaderNav");
         Vue::AfficherVue("Formation/formation");
         Vue::AfficherVue("Footer");
     }
-    public function newFormation() {
+
+    public function newFormation()
+    {
         Vue::AfficherVue("Header");
         Vue::AfficherVue("HeaderNav");
         Vue::AfficherVue("Formation/offre");
         Vue::AfficherVue("Footer");
     }
 
-    public function editFormation($id) {
+    public function editFormation($id)
+    {
         $this->formation->loadFormation($id);
-        $codification = new ModelCodification();
 
         $data = array();
         $data['formation'] = $this->formation;
-        $data['codification'] = $codification;
+        $data['codification'] = $this->codification;
         Vue::AfficherVue("Header");
         Vue::AfficherVue("HeaderNav");
-        Vue::AfficherVue("Formation/offre",$data);
+        Vue::AfficherVue("Formation/offre", $data);
+        Vue::AfficherVue("Footer");
+    }
+
+    public function editFormationDomaine($id)
+    {
+        $this->formation->loadFormation($id);
+
+        $data = array();
+        $data['formation'] = $this->formation;
+        $data['codification'] = $this->codification;
+        Vue::AfficherVue("Header");
+        Vue::AfficherVue("HeaderNav");
+        Vue::AfficherVue("Formation/domaine", $data);
+        Vue::AfficherVue("Footer");
+    }
+
+    public function editFormationCertification($id)
+    {
+        $this->formation->loadFormation($id);
+
+        $data = array();
+        $data['formation'] = $this->formation;
+        $data['codification'] = $this->codification;
+        Vue::AfficherVue("Header");
+        Vue::AfficherVue("HeaderNav");
+        Vue::AfficherVue("Formation/certification", $data);
+        Vue::AfficherVue("Footer");
+    }
+
+    public function editFormationContactFormation($id)
+    {
+        $this->formation->loadFormation($id);
+
+        $data = array();
+        $data['formation'] = $this->formation;
+        $data['codification'] = $this->codification;
+        Vue::AfficherVue("Header");
+        Vue::AfficherVue("HeaderNav");
+        Vue::AfficherVue("Formation/contactFormation", $data);
+        Vue::AfficherVue("Footer");
+    }
+
+    public function editFormationOrganismeFormationResponsable($id)
+    {
+        $this->formation->loadFormation($id);
+
+        $data = array();
+        $data['formation'] = $this->formation;
+        $data['codification'] = $this->codification;
+        Vue::AfficherVue("Header");
+        Vue::AfficherVue("HeaderNav");
+        Vue::AfficherVue("Formation/ofr", $data);
+        Vue::AfficherVue("Footer");
+    }
+
+    public function editFormationActions($id)
+    {
+        $this->formation->loadFormation($id);
+
+        $data = array();
+        $data['formation'] = $this->formation;
+        $data['codification'] = $this->codification;
+        Vue::AfficherVue("Header");
+        Vue::AfficherVue("HeaderNav");
+        Vue::AfficherVue("Formation/action", $data);
+        Vue::AfficherVue("Footer");
+    }
+
+    public function editFormationModularisation($id)
+    {
+        $this->formation->loadFormation($id);
+
+        $data = array();
+        $data['formation'] = $this->formation;
+        $data['codification'] = $this->codification;
+        Vue::AfficherVue("Header");
+        Vue::AfficherVue("HeaderNav");
+        Vue::AfficherVue("Formation/modularisation", $data);
         Vue::AfficherVue("Footer");
     }
 

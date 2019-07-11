@@ -1,9 +1,20 @@
 <div class="table-wrapper">
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false"> Choix des colonnes
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+    <div>
+        <div>
+            <form class="form" method="post" enctype="multipart/form-data"
+                  action="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>formation/import">
+
+                <input name="file" type="file" value="table">
+                <input name="submit" type="submit" value="Importer">
+            </form>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"> Choix des colonnes
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <option class="option-col" value="id" data-column="0">ID</option>
                 <option class="option-col" value="domain" data-column="1" style="cursor: pointer;">Domaine</option>
                 <option class="option-col" value="objectif" data-column="2" style="cursor: pointer;">Objectif</option>
@@ -30,12 +41,12 @@
                 </option>
                 <option class="option-col" value="validation" data-column="4" style="cursor: pointer;">Validation
                 </option>
+            </div>
         </div>
-    </div>
-    <div>
         <table class="cell-border stripe display" cellspacing="0" id="table-domain" style="text-align: center">
             <thead>
             <tr>
+                <th name="intitulé">Intitulé</th>
                 <th name="domain">Domaine</th>
                 <th name="objectif">Objectif</th>
                 <th name="resultats">Résultats attendus</th>
@@ -53,31 +64,31 @@
             </tr>
             </thead>
             <tbody>
-<!--            --><?php
-//            $formation = new Formation();
-//            $formations = $formation->getAllFormations();
-//            foreach ($formations as $formation) {
-//                $str = "<tr>";
-//                $str .= "<td>" . $formation['domaine_formation'] . "</td>";
-//                $str .= "<td>" . $formation['objectif_formation'] . "</td>";
-//                $str .= "<td>" . $formation['resultats_attendus'] . "</td>";
-//                $str .= "<td>" . $formation['contenu_formation'] . "</td>";
-//                $str .= "<td>" . $formation['certifiante'] . "</td>";
-//                $str .= "<td>" . $formation['contact_formation'] . "</td>";
-//                $str .= "<td>" . $formation['parcours_formation'] . "</td>";
-//                $str .= "<td>" . $formation['code_niveau_entree'] . "</td>";
-//                $str .= "<td>" . $formation['code_niveau_sortie'] . "</td>";
-//                $str .= "<td>" . $formation['url_formation'] . "</td>";
-//                $str .= "<td>" . $formation['organisme_formation_responsable'] . "</td>";
-//                $str .= "<td>" . $formation['eligibilite_cpf'] . "</td>";
-//                $str .= "<td>" . $formation['validation'] . "</td>";
-//                $str .= "<td><a href=\"\" class=\"btn btn-primary\">Voir details</a></td>";
-//                $str .= "</tr>";
-//
-//                print_r($str);
-//            } ?>
+            <!--            --><?php
+            //            $formation = new Formation();
+            //            $formations = $formation->getAllFormations();
+            //            foreach ($formations as $formation) {
+            //                $str = "<tr>";
+            //                $str .= "<td>" . $formation['domaine_formation'] . "</td>";
+            //                $str .= "<td>" . $formation['objectif_formation'] . "</td>";
+            //                $str .= "<td>" . $formation['resultats_attendus'] . "</td>";
+            //                $str .= "<td>" . $formation['contenu_formation'] . "</td>";
+            //                $str .= "<td>" . $formation['certifiante'] . "</td>";
+            //                $str .= "<td>" . $formation['contact_formation'] . "</td>";
+            //                $str .= "<td>" . $formation['parcours_formation'] . "</td>";
+            //                $str .= "<td>" . $formation['code_niveau_entree'] . "</td>";
+            //                $str .= "<td>" . $formation['code_niveau_sortie'] . "</td>";
+            //                $str .= "<td>" . $formation['url_formation'] . "</td>";
+            //                $str .= "<td>" . $formation['organisme_formation_responsable'] . "</td>";
+            //                $str .= "<td>" . $formation['eligibilite_cpf'] . "</td>";
+            //                $str .= "<td>" . $formation['validation'] . "</td>";
+            //                $str .= "<td><a href=\"\" class=\"btn btn-primary\">Voir details</a></td>";
+            //                $str .= "</tr>";
+            //
+            //                print_r($str);
+            //            } ?>
 
-    </tbody>
-    </table>
+            </tbody>
+        </table>
     </div>
 </div>
