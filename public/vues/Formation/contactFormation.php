@@ -4,41 +4,49 @@
             <div class="row">
 
                 <div id="tree" class="col-md-11">
-                    <ul>
-                        <li>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
                             <a href="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>formation/edit/offre/<?php echo($arg['formation']->getId()) ?>">Offre
                                 de
                                 formation</a>
-                        </li>
-                        <ul>
-                            <li>
-                                <a href="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>formation/edit/domaine/<?php echo($arg['formation']->getId()) ?>">Domaine
-                                    de
-                                    la formation</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>formation/edit/certification/<?php echo($arg['formation']->getId()) ?>">Certifications</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>formation/edit/contact-formation/<?php echo($arg['formation']->getId()) ?>"><b>Contact
+                            <ul class="list-group list-group-flush" style="list-style:none;">
+                                <li class="list-group-item">
+                                    <a href="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>formation/edit/domaine/<?php echo($arg['formation']->getId()) ?>">Domaine
                                         de
-                                        la formation</b></a>
-                            </li>
-                            <li>
-                                <a href="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>formation/edit/organisme-formation-responsable/<?php echo($arg['formation']->getId()) ?>">Organisme
-                                    de
-                                    formation responsable</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>formation/edit/actions/<?php echo($arg['formation']->getId()) ?>">Actions
-                                    de formation</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>formation/edit/modularisation/<?php echo($arg['formation']->getId()) ?>">Modularisation</a>
-                            </li>
+                                        la formation</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>formation/edit/certification/<?php echo($arg['formation']->getId()) ?>">Certifications</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>formation/edit/contact-formation/<?php echo($arg['formation']->getId()) ?>"><strong>Contact
+                                        de
+                                            la formation</strong></a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>formation/edit/organisme-formation-responsable/<?php echo($arg['formation']->getId()) ?>">Organisme
+                                        de
+                                        formation responsable</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>formation/edit/actions/<?php echo($arg['formation']->getId()) ?>">Actions
+                                        de formation</a>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Lieu de formation</li>
+                                        <li class="list-group-item">Adresse d'information</li>
+                                        <li class="list-group-item">Organisme formateur</li>
+                                        <li class="list-group-item">Irganismes financeurs</li>
+                                        <li class="list-group-item">Sessions</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>formation/edit/modularisation/<?php echo($arg['formation']->getId()) ?>">Modularisation</a>
+                                </li>
 
-                        </ul>
+                            </ul>
+                        </li>
                     </ul>
+
                 </div>
             </div>
         </div>

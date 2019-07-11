@@ -64,9 +64,6 @@ class   Routeur
                                 case "offre":
                                     $formation->editFormation($request[3]);
                                     break;
-                                case "save_offre":
-                                    $formation->save();
-                                    break;
                                 case "domaine":
                                     $formation->editFormationDomaine($request[3]);
                                     break;
@@ -86,6 +83,16 @@ class   Routeur
                                     $formation->editFormationModularisation($request[3]);
                                     break;
                             }
+                        }
+                        break;
+                    case "new":
+                        if ($request[2]){
+                            switch($request[2]){
+                                case "offre":
+                                    $formation->newFormation();
+                                    break;
+                            }
+
                         }
                         break;
                     case "import":

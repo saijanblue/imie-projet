@@ -3,10 +3,10 @@ ob_start();
 session_start();
 
 //Parametres de connexion à la base de données
-define('DBHOST','localhost');
-define('DBUSER','root');
-define('DBPASS','');
-define('DBNAME','nom de la base à definir');
+define('DBHOST','mysql-equinveros.alwaysdata.net');
+define('DBUSER','equinveros_wise');
+define('DBPASS','101IMIE49');
+define('DBNAME','equinveros_wise');
 
 
 $db = new PDO("mysql:host=".DBHOST.";port=3306;dbname=".DBNAME, DBUSER, DBPASS);

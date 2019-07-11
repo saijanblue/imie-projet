@@ -5,7 +5,10 @@ $(document).ready(function () {
         "fixedHeader": true,
         "ordering": false,
         "responsive": true,
+        "paging": true,
+        "searching": true,
         "pageLength": 50,
+        "search": true,
         "language":
             {
                 "search": "",
@@ -55,13 +58,20 @@ $(document).ready(function () {
 
             // { data: 'details' }
         ],
-        "buttons": ['copy', {
+        "buttons": [{
             extend: 'csv',
             text: 'Export CSV',
         }, {
             extend: 'excel',
             text: 'Export XSL',
-        }],
+        },
+            {
+                text: 'Nouveau',
+                className: "btn btn-secondary",
+                action: function (e, dt, node, config) {
+                    window.location.href = "formation/new/offre";
+                }
+                }],
 
 
     });

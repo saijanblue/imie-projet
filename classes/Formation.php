@@ -171,9 +171,12 @@ class Formation
 
     public function newFormation()
     {
+        $data = array();
+        $data['formation'] = $this->formation;
+        $data['codification'] = $this->codification;
         Vue::AfficherVue("Header");
         Vue::AfficherVue("HeaderNav");
-        Vue::AfficherVue("Formation/offre");
+        Vue::AfficherVue("Formation/offre",$data);
         Vue::AfficherVue("Footer");
     }
 

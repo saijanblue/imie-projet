@@ -1,12 +1,9 @@
 <?php
 
 include "classes/User.php";
-include "classes/Database.php";
+include "classes/database.php";
 //On démarre une session
 session_start();
-//On décompose l'url, ceci permettra à terme de gérer les sous-requêtes, ex : \home\tab1\detail
-
-
 
 
 //Cas ou la page est une page de connexion
@@ -20,9 +17,9 @@ Note : les erreurs de formulaire pour l'écran de connexion est géré par le co
 */
 //if (User::is_logged_in() === TRUE ){
 //    if (User::CheckRight($Request, $_SESSION["Role"]) === TRUE ){
-        require_once('./classes/Routeur.php');
+        require_once('classes/Routeur.php');
         $GLOBALS["db"] = new database("Utilisateur");
-        new Routeur("Home");
+        new Routeur();
 //    }
 //}else{
 //    require_once("classes/Connexion.php");
