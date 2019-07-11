@@ -374,7 +374,7 @@ class ModelFormation
 
     public function getIdParcoursFormation($str)
     {
-        $sql = "SELECT * FROM dict_type_parcours WHERE val ='" . $str . "'";
+        $sql = utf8_encode("SELECT * FROM dict_type_parcours WHERE val ='" . $str . "'");
         $result = $this->db->request($sql);
         if ($result) {
             return $result[0]["id"];

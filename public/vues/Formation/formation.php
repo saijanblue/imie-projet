@@ -56,10 +56,10 @@
                 <th name="parcours">Parcours</th>
                 <th name="code_entree">Niveau entree</th>
                 <th name="code_sortie">Niveau sortie</th>
-                <th name="url">Site</th>
-                <th name="organisme">Organisme responsable</th>
-                <th name="eligibilité">Eligibilité CPF</th>
-                <th name="validation">Validation</th>
+<!--                <th name="url">Site</th>-->
+<!--                <th name="organisme">Organisme responsable</th>-->
+<!--                <th name="eligibilité">Eligibilité CPF</th>-->
+<!--                <th name="validation">Validation</th>-->
                 <th name="detail">Actions</th>
             </tr>
             </thead>

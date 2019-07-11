@@ -1,5 +1,5 @@
 <footer class="footer-home">
-    <img alt="" class="logo-footer" src="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>/assets/img/wise-logo-blanc.svg">
+    <img alt="" class="logo-footer" src="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>/public/assets/img/wise-logo-blanc.svg">
     <div class="footer-content">
         <p class="footer-descr">Le programme WISE - West Intelligent Systems& Electronics - fédère à l'Ouest l'écosystème de l'électronique et des systèmes intelligents. Il est coordonné par WE Network, association qui réunit 200 structures adhérentes, représentant 25 000 emplois.</p>
         <div style="margin-top: 20px;">

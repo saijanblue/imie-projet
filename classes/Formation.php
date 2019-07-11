@@ -54,6 +54,8 @@ class Formation
             header("Location: ".(explode('index.php', $_SERVER['PHP_SELF']))[0]."formation");
         } else {
             echo "Importation echouée";
+            header("Location: ".(explode('index.php', $_SERVER['PHP_SELF']))[0]."formation");
+
         }
     }
 
