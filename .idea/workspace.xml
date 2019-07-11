@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bcd213b4-2fac-423b-940d-267648f6b391" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/public/vues/Formation/formation.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/vues/Formation/formation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vues/Formation/offre.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/vues/Formation/offre.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -205,11 +205,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/vues/Formation/offre.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="55" column="45" lean-forward="true" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
+            <state relative-caret-position="180">
+              <caret line="65" column="63" selection-start-line="65" selection-start-column="63" selection-end-line="65" selection-end-column="63" />
               <folding>
                 <element signature="n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
                 <element signature="n#style#0;n#ul#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -292,10 +292,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/vues/Formation/formation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
+            <state relative-caret-position="-1280">
               <caret line="11" column="111" selection-start-line="11" selection-start-column="111" selection-end-line="11" selection-end-column="111" />
               <folding>
                 <element signature="e#4014#4057#0#PHP" expanded="true" />
@@ -506,7 +506,6 @@
         <option value="$PROJECT_DIR$/config/IdentifiantsBDD/Utilisateur.ini" />
         <option value="$PROJECT_DIR$/config/config.php" />
         <option value="$PROJECT_DIR$/public/lib/Editor/lib/config.php" />
-        <option value="$PROJECT_DIR$/public/vues/Formation/offre.php" />
         <option value="$PROJECT_DIR$/public/vues/Formation/certification.php" />
         <option value="$PROJECT_DIR$/public/vues/Formation/contactFormation.php" />
         <option value="$PROJECT_DIR$/public/vues/Formation/domaine.php" />
@@ -525,6 +524,7 @@
         <option value="$PROJECT_DIR$/public/assets/css/styleWeb.css" />
         <option value="$PROJECT_DIR$/models/ModelFormation.php" />
         <option value="$PROJECT_DIR$/public/vues/Formation/formation.php" />
+        <option value="$PROJECT_DIR$/public/vues/Formation/offre.php" />
       </list>
     </option>
   </component>
@@ -653,7 +653,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72993000" />
+    <option name="totallyTimeSpent" value="73236000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -787,17 +787,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-320">
           <caret line="5" column="48" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/vues/Formation/offre.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="55" column="45" lean-forward="true" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
-          <folding>
-            <element signature="n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
-            <element signature="n#style#0;n#ul#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1039,10 +1028,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/vues/Formation/formation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="-1280">
           <caret line="11" column="111" selection-start-line="11" selection-start-column="111" selection-end-line="11" selection-end-column="111" />
           <folding>
             <element signature="e#4014#4057#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/vues/Formation/offre.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="65" column="63" selection-start-line="65" selection-start-column="63" selection-end-line="65" selection-end-column="63" />
+          <folding>
+            <element signature="n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#style#0;n#ul#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

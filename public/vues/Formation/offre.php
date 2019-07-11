@@ -85,9 +85,9 @@
                         <?php
                         foreach ($arg['codification']->getList("bool") as $l) {
                             if ($arg['formation']->getCertifiante() == $l["id"]) {
-                                echo "<option selected>" . utf8_encode($l["val"]) . "</option>";
+                                echo "<option selected>" . $l["val"] . "</option>";
                             } else {
-                                echo "<option>" . utf8_encode($l["val"]) . "</option>";
+                                echo "<option>" . $l["val"] . "</option>";
                             }
                         }
                         ?>
@@ -100,9 +100,9 @@
                         <?php
                         foreach ($arg['codification']->getList("parcours") as $l) {
                             if ($arg['formation']->getParcoursFormation() == $l["id"]) {
-                                echo "<option selected>" . utf8_encode($l["val"]) . "</option>";
+                                echo "<option selected>" . $l["val"] . "</option>";
                             } else {
-                                echo "<option>" . utf8_encode($l["val"]) . "</option>";
+                                echo "<option>" . $l["val"] . "</option>";
                             }
                         }
                         ?>
@@ -115,9 +115,9 @@
                         <?php
                         foreach ($arg['codification']->getList("niveaux") as $l) {
                             if ($arg['formation']->getCodeNiveauEntree() == $l["id"]) {
-                                echo "<option selected>" . utf8_encode($l["val"]) . "</option>";
+                                echo "<option selected>" . $l["val"] . "</option>";
                             } else {
-                                echo "<option>" . utf8_encode($l["val"]) . "</option>";
+                                echo "<option>" . $l["val"] . "</option>";
                             }
                         }
                         ?>
@@ -130,9 +130,9 @@
                         <?php
                         foreach ($arg['codification']->getList("niveaux") as $l) {
                             if ($arg['formation']->getCodeNiveauSortie() == $l["id"]) {
-                                echo "<option selected>" . utf8_encode($l["val"]) . "</option>";
+                                echo "<option selected>" . $l["val"] . "</option>";
                             } else {
-                                echo "<option>" . utf8_encode($l["val"]) . "</option>";
+                                echo "<option>" . $l["val"] . "</option>";
                             }
                         }
                         ?>
