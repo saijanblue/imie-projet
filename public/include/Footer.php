@@ -16,6 +16,7 @@
     <script type="text/javascript" src="scriptCommons.js"></script>
 </footer>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
 	<script type="text/javascript" src="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>/public/assets/js/bootstrap.bundle.js"></script>
 	<script type="text/javascript" src="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>/public/assets/js/bootstrap.js"></script>
     <script type="text/javascript" charset="utf8" src="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>/public/lib/DataTables/datatables.js"></script>
