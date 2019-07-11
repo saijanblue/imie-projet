@@ -38,7 +38,9 @@ class Connexion{
             $user->login($email, $Password);
         }else{
             Vue::AfficherVue("Header");
-            Vue::AfficherVue("login");
+            Vue::AfficherVue("HeaderNav");
+            Vue::AfficherVue("Connexion");
+            Vue::AfficherVue("Footer");
         }
     }
 }

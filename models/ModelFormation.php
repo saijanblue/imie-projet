@@ -107,14 +107,12 @@ class ModelFormation
 
             $stmt->execute();
         } else if ($flag === "insert") {
-            $db = new PDO('mysql:host=localhost;dbname=' . 'wise', 'root', '');
+            $db = new PDO('mysql:host=mysql-equinveros.alwaysdata.net;dbname=' . 'equinveros_wise', '165918_imie', '101IMIE49',array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
             $sql = utf8_encode("SELECT * FROM formation WHERE intitule_formation LIKE '$this->intitule_formation'");
-            echo($sql);
             $result = $this->db->request($sql);
             if (!$result) {
-
-
+                
 //            $sql = "INSERT INTO formation(intitule_formation,objectif_formation,resultats_attendus,contenu_formation)";
 //            $sql .= "VALUES(:intitule_formation,:objectif_formation,:resultats_attendus,:contenu_formation)";
                 $sql = "INSERT INTO formation(intitule_formation,objectif_formation,resultats_attendus,contenu_formation,certifiante,code_niveau_entree,code_niveau_sortie,contact_formation,parcours_formation,organisme_formation_responsable)";
@@ -134,7 +132,7 @@ class ModelFormation
 //            :modules_prerequis,
 //            :eligibilite_cpf,
 //            :validation)";
-                echo $this->code_niveau_entree;
+
                 $stmt = $db->prepare($sql);
                 $stmt->bindParam(':intitule_formation', $this->intitule_formation);
 //            $stmt->bindParam(':domaine_formation', $this->domaine_formation, PDO::PARAM_INT);
@@ -339,7 +337,7 @@ class ModelFormation
         if ($result) {
             return $result[0]["id"];
         } else {
-            $db = new PDO('mysql:host=localhost;dbname=' . 'wise', 'root', '');
+            $db = new PDO('mysql:host=mysql-equinveros.alwaysdata.net;dbname=' . 'equinveros_wise', '165918_imie', '101IMIE49',array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
             $sql = "INSERT INTO coordonnees(nom,prenom) VALUES('$str[0]','$str[1]')";
             $stmt = $db->prepare($sql);
@@ -501,7 +499,7 @@ class ModelFormation
         if ($result) {
             return $result[0]["id"];
         } else {
-            $db = new PDO('mysql:host=localhost;dbname=' . 'wise', 'root', '');
+            $db = new PDO('mysql:host=mysql-equinveros.alwaysdata.net;dbname=' . 'equinveros_wise', '165918_imie', '101IMIE49',array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
             $sql = "INSERT INTO organisme_formation_responsable(nom_organisme) VALUES('$str]')";
             $stmt = $db->prepare($sql);

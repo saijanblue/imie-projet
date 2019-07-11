@@ -53,6 +53,9 @@ header nav ul {
 .nav-menu {
 	width: 40%;
 }
+.custom-file-input ~ .custom-file-label:lang(fr)::after {
+	content: "Choisir...";
+}
 header h1 {
 	position: absolute;
     top: 68%;

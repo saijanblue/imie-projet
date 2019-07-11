@@ -3,7 +3,7 @@
     <div>
         <div class="jumbotron">
             <div class="row">
-                <div class="col-md-6 offset-3"
+                <div class="col-md-6 offset-3">
 
                 <form class="form-row" method="post" enctype="multipart/form-data"
                       action="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>formation/import">
@@ -19,7 +19,7 @@
             </div>
         </div>
     </div>
-    <div class="dropdown">
+    <!--<div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                 data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false"> Choix des colonnes
@@ -44,15 +44,15 @@
             <option class="option-col" value="organisme" data-column="4" style="cursor: pointer;">Organisme
                 responsable
             </option>
-            <!--            <option class="option-col" value="sous_modules" data-column="4" style="cursor: pointer;">Certification</option>-->
-            <!--            <option class="option-col" value="modules" data-column="4" style="cursor: pointer;">Modules prerequis</option>-->
+            <option class="option-col" value="sous_modules" data-column="4" style="cursor: pointer;">Certification</option>
+            <option class="option-col" value="modules" data-column="4" style="cursor: pointer;">Modules prerequis</option>
             <option class="option-col" value="eligibilité" data-column="4" style="cursor: pointer;">Eligibilite
                 CPF
             </option>
             <option class="option-col" value="validation" data-column="4" style="cursor: pointer;">Validation
             </option>
         </div>
-    </div>
+    </div>-->
     <table class="cell-border stripe display" cellspacing="0" id="table-domain" style="text-align: center">
         <thead>
         <tr>

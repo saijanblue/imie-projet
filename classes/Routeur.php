@@ -108,31 +108,15 @@ class   Routeur
             }
         }
 
-        if ($request[0] == "Connexion") {
+        if ($request[0] === "Connexion") {
             include("Connexion.php");
             new Connexion();
         }
-
 
         if ($request[0] === "Home") {
             include 'Home.php';
             new Home();
         }
-        /*switch ($request) {
-            case "Home":
-                include 'Home.php';
-                new Home();
-                break;
-            case "Connexion":
-                break;
-            case "formation":
-                include 'Formation.php';
-                $formation = new Formation();
-                $formation->gridFormation();
-                break;
-            default:
-                break;
-        }*/
     }
 }
 
