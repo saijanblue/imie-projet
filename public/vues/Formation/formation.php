@@ -9,7 +9,7 @@
                       action="<?php echo (explode("index.php", $_SERVER['PHP_SELF']))[0] ?>formation/import">
                     <div class="custom-file">
 
-                        <input name="file" type="file" value="table" class="custom-file-input form-control">
+                        <input name="file" type="file" value="table" class="custom-file-input form-control-file">
                         <label class="custom-file-label" for="custom-file">
                             Choissisez votre fichier à importer
                         </label>
